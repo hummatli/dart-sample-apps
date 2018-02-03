@@ -60,9 +60,30 @@ void updateCoordinates(int rel_x, int rel_y) {
 class Environment {
   String name;
 
+  Encounter encounter = new Bear();
+
   Environment(this.name);
 
   String stumbleUpon() {
-    return "${this.name} you stumbled upon something";
+    return "${this.name} you stumbled upon something ${this.encounter.whenEncounter()}";
+  }
+}
+
+abstract class Encounter {
+
+  whenEncounter();
+}
+
+class Bear extends Encounter {
+
+  whenEncounter() {
+    return "grr grow, you encounter a bear";
+  }
+}
+
+class Ghost extends Encounter {
+
+  whenEncounter() {
+    return "Booh, you encounter a ghost";
   }
 }
