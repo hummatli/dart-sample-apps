@@ -10,6 +10,8 @@ void main() {
   updateCoordinates(0,0);
 }
 
+Environment myEnvironment = new Environment("wood");
+
 void clickedOnEnter(e) {
   InputElement input = querySelector("#commands");
 
@@ -41,6 +43,11 @@ void clickedOnEnter(e) {
   querySelector('#output').appendHtml(outputHTML);
 
   input.style.borderColor = "#55FF55";
+
+
+  var interaction = myEnvironment.stumbleUpon();
+  outputHTML = "<div>${interaction}</div>";
+  querySelector("#output").appendHtml(outputHTML);
 }
 
 void updateCoordinates(int rel_x, int rel_y) {
@@ -48,4 +55,14 @@ void updateCoordinates(int rel_x, int rel_y) {
   y += rel_y;
 
   querySelector("#coordinates").innerHtml = "Place : $x , $y";
+}
+
+class Environment {
+  String name;
+
+  Environment(this.name);
+
+  String stumbleUpon() {
+    return "${this.name} you stumbled upon something";
+  }
 }
