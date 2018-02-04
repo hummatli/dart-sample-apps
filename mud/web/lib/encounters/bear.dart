@@ -1,9 +1,8 @@
 part of mud;
 
-class Bear extends Encounter {
+class Bear extends Encounter with RandomDamage {
 
-  var _rng = new Random();
-  get damage_value => _rng.nextInt(5);
+  Bear() : super._();
 
   whenEncounter() {
     return "grr grow, you encountered a bear!";

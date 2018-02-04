@@ -8,12 +8,14 @@ class Environment {
 
   Environment(name) {
     this.name = name;
-    this.encounter = new Bear();
+    this.encounter = new Encounter({});
   }
 
   String stumbleUpon() {
+    this.encounter = new Encounter({"number": 7, "damage": 3});
+
     var done_damage = damage;
-    var interaction = "${_name} You just stumbled upon ... ${this.encounter.whenEncounter()}";
+    var interaction = "${_name} You just stumbled upon ... ${this.encounter?.whenEncounter()}";
     if (done_damage > 0) {
      interaction += "<br /> You have ${done_damage} damage!";
    }

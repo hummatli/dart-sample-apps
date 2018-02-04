@@ -4,7 +4,15 @@ library mud;
 
 import 'dart:math';
 
-part 'encounter.dart';
+part './encounters/encounter.dart';
 part 'environment.dart';
-part 'bear.dart';
-part 'ghost.dart';
+part './encounters/bear.dart';
+part './encounters/ghost.dart';
+part './encounters/angel.dart';
+part './encounters/drunken_sailer.dart';
+part './encounters/nothing.dart';
+part './encounters/goblin.dart';
+
+part './encounters/random_damage.dart';
+part './encounters/say_something.dart';
+part './encounters/vampire.dart';
