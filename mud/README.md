@@ -1,4 +1,4 @@
-# Uber-simple web app
+# Dart-simple web app
 
 An absolute bare-bones web app.
 
