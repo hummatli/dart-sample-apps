@@ -28,7 +28,7 @@ abstract class Encounter {
     case 6:
         return new Goblin(damage_value);
     default:
-      return null;
+      return new Nothing();
     }
   }
 

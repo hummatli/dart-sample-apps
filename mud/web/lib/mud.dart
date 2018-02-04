@@ -3,9 +3,12 @@ library mud;
 /** put all the files that are part of the MUD library **/
 
 import 'dart:math';
+import 'dart:html';
+import 'dart:convert';
 
 part './encounters/encounter.dart';
 part 'environment.dart';
+part 'person.dart';
 part './encounters/bear.dart';
 part './encounters/ghost.dart';
 part './encounters/angel.dart';
