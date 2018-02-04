@@ -16,14 +16,16 @@ abstract class Encounter {
 
     switch (value) {
     case 1:
-      return new Bear();
+        return new Nothing();
     case 2:
-      return new Angel();
+      return new Bear();
     case 3:
-      return new DrunkenSailer();
+      return new Angel();
     case 4:
-      return new Ghost();
+      return new DrunkenSailer();
     case 5:
+      return new Ghost();
+    case 6:
         return new Goblin(damage_value);
     default:
       return null;

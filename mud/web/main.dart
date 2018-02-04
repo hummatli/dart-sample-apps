@@ -1,12 +1,19 @@
 // Copyright (c) 2015, <your name>. All rights reserved. Use of this source code
 // is governed by a BSD-style license that can be found in the LICENSE file.
 import 'dart:html';
-
+import 'package:http/browser_client.dart';
+import 'package:SomeApp/client/world.dart';
 import 'lib/mud.dart';
 
 int x = 0, y = 0;
 
+final String _serverUrl = 'localhost:8083/';
+final BrowserClient _client = new BrowserClient();
+World _api;
+
 void main() {
+  var protocol = window.location.protocol;
+  _api = new World(_client, rootUrl: '$protocol//$_serverUrl');
   querySelector("#enter").onClick.listen(clickedOnEnter);
 
   updateCoordinates(0,0);
@@ -55,5 +62,8 @@ void updateCoordinates(int rel_x, int rel_y) {
   x += rel_x;
   y += rel_y;
 
-  querySelector("#coordinates").innerHtml = "Place : $x , $y";
+  _api.getWorldInfo("${x}", "${y}").then((value) {
+    querySelector("#coordinates").innerHtml = "Place : $x , $y (${value.name})";
+  });
+  // querySelector("#coordinates").innerHtml = "Place : $x , $y ()";
 }

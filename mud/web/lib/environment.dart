@@ -14,7 +14,7 @@ class Environment {
   String stumbleUpon() {
     this.encounter = new Encounter({"number": 7, "damage": 3});
 
-    var done_damage = damage;
+    var done_damage = this.encounter?.damage_value;
     var interaction = "${_name} You just stumbled upon ... ${this.encounter?.whenEncounter()}";
     if (done_damage > 0) {
      interaction += "<br /> You have ${done_damage} damage!";
